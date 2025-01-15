@@ -2,19 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://hrdjkx2nwhvu" path="res://scenes/Player.tscn" id="1_pwpvw"]
 [ext_resource type="Texture2D" uid="uid://gf7lfdut5a34" path="res://assets/sprites/level-enemies.png" id="2_y6r7a"]
-[ext_resource type="Script" path="res://scenes/killzone.gd" id="4_76wl3"]
-[ext_resource type="Script" path="res://scenes/tile_map.gd" id="4_hiwnu"]
+[ext_resource type="Script" path="res://scripts/killzone.gd" id="4_76wl3"]
+[ext_resource type="Script" path="res://scripts/tile_map.gd" id="4_hiwnu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6uqxq"]
 texture = ExtResource("2_y6r7a")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:0/0 = 0
-2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-2:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:0/0 = 0
 3:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 36:0/0 = 0
@@ -44,7 +41,7 @@ format = 2
 layer_0/name = "Black"
 layer_0/tile_data = PackedInt32Array(65537, 0, 0, 65536, 0, 0, 131071, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 131079, 0, 0, 131078, 0, 0, 131077, 0, 0, 12, 0, 0, 11, 0, 0, 10, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, -131055, 0, 0, -131056, 0, 0, -131057, 0, 0, -65521, 0, 0, -65520, 0, 0, -65519, 0, 0, 131067, 65536, 0, 196603, 65536, 0)
 layer_1/name = "White"
-layer_1/tile_data = PackedInt32Array(65540, 65536, 0, 65539, 65536, 0, 65538, 65536, 0, 131074, 65536, 0, 131075, 65536, 0, 131076, 65536, 0, 9, 65536, 0, 8, 65536, 0, 65544, 65536, 0, 65545, 65536, 0, -131058, 65536, 0, -131059, 65536, 0, -65523, 65536, 0, -65522, 65536, 0)
+layer_1/tile_data = PackedInt32Array(65538, 65536, 0, 131074, 65536, 0, 131075, 65536, 0, 131076, 65536, 0, 65540, 65536, 0, 65539, 65536, 0, 65544, 65536, 0, 131080, 65536, 0, 131081, 65536, 0, 65545, 65536, 0, -65523, 65536, 0, 13, 65536, 0, -131058, 65536, 0, -65522, 65536, 0, 14, 65536, 0)
 script = ExtResource("4_hiwnu")
 
 [node name="Timer" type="Timer" parent="TileMap"]
