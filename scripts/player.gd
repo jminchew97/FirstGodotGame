@@ -3,8 +3,12 @@ extends CharacterBody2D
 
 @export var SPEED = 100.0
 @export var JUMP_VELOCITY = -100.0
-
+@export var ACCELERATION = 0.50
+@export var FRICTION = 0.1
 @onready var coyote_timer: Timer = $CoyoteTimer
+
+
+
 
 var can_jump = false
 func _physics_process(delta: float) -> void:
@@ -23,9 +27,13 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
-		velocity.x = direction * SPEED
+		#velocity.x = direction * SPEED
+		
+		#trying lerping
+		velocity.x = lerp(velocity.x, direction * SPEED, ACCELERATION)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+
+		velocity.x = lerp(velocity.x, 0.0, FRICTION)
 	
 	var was_on_floor = is_on_floor()
 	move_and_slide()	
