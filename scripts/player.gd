@@ -6,24 +6,18 @@ extends CharacterBody2D
 
 @onready var coyote_timer: Timer = $CoyoteTimer
 
-var can_jump = true
+var can_jump = false
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and can_jump:
-		velocity.y = JUMP_VELOCITY
-		
-	# if player is not on floor start coyote timer
-	if is_on_floor() == false:
-		coyote_timer.start()
-		
 	if is_on_floor():
-		can_jump = true
-	#if Input.is_action_just_pressed("ui_accept") :
-		#velocity.y = JUMP_VELOCITY
+		can_jump = true	
+	# Handle jump.
+	if Input.is_action_just_pressed("ui_accept") and (is_on_floor() || !coyote_timer.is_stopped()) and can_jump:
+		velocity.y = JUMP_VELOCITY
+		can_jump = false
+		
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -32,11 +26,14 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
-	move_and_slide()
+	
+	var was_on_floor = is_on_floor()
+	move_and_slide()	
+	
+	if was_on_floor and !is_on_floor():
+		coyote_timer.start()
 
 
 func _on_coyote_timer_timeout() -> void:
-	can_jump = false
-	print("cant jump")
+
 	pass # Replace with function body.

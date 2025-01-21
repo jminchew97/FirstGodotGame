@@ -19,6 +19,9 @@ var current_layer_modulate_color
 
 
 func _ready() -> void:
+	#Set the flicker rate on the timer
+	timer.wait_time = flicker_rate
+	
 	put_tiles_on_correct_layer()
 	
 	tile_set.set_physics_layer_collision_layer(Layer.White, 1)

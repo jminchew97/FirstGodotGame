@@ -33,7 +33,7 @@ position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_iq3q5")
 
 [node name="CoyoteTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.3
 one_shot = true
 
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
