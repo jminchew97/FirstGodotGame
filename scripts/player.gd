@@ -12,7 +12,7 @@ extends CharacterBody2D
 
 var can_jump = false
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
+	# Add the gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	if is_on_floor():
