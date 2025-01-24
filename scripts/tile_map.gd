@@ -97,7 +97,9 @@ func put_tiles_on_correct_layer():
 		if tile.get_custom_data("layer") == Layer.Black:
 			set_cell(Layer.Black,tile_coord, 0, Vector2i(0,0))
 			set_cell(main_level_layer,tile_coord,-1)
-		if tile.get_custom_data("layer") == Layer.White:
+		elif tile.get_custom_data("layer") == Layer.White:
 			set_cell(Layer.White,tile_coord, 0, Vector2i(1,0))
 			set_cell(main_level_layer,tile_coord,-1)
+		elif tile.get_custom_data("layer") == 2:
+			print("found two tiles to go on non flicker layer")
 	
